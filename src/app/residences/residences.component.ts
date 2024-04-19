@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Residence } from '../core/models/residence';
 import { Apartment } from '../core/models/apartment';
 
@@ -26,14 +27,15 @@ export class ResidencesComponent implements OnInit {
   favorites: Apartment[] = [];
   surfaceFilter: number | null = null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   showApartments(residence: Residence): void {
     this.selectedResidence = residence;
-    this.residenceApartments = this.listApartments.filter(apartment => apartment.residence === residence);
+    this.residenceApartments = this.listApartments.filter(apartment => apartment.residence.id === residence.id);
+    this.router.navigate(['/residence', residence.id, 'apartments']);
   }
 
   addToFavorites(apartment: Apartment): void {

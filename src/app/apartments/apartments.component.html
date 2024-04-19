@@ -1,0 +1,20 @@
+<h2>Appartements pour la résidence</h2>
+
+<div *ngIf="apartments.length > 0">
+  <ul>
+    <li *ngFor="let apartment of apartments">
+      <h3>{{ apartment.description }}</h3>
+      <p>Numéro de l'appartement : {{ apartment.appartNum }}</p>
+      <p>Étage : {{ apartment.floorNum }}</p>
+      <p>Surface : {{ apartment.surface }} m²</p>
+      <p>Terrasse : {{ apartment.terrace }}</p>
+      <p>Surface de la terrasse : {{ apartment.surfaceTerrace }} m²</p>
+      <p>Catégorie : {{ apartment.category }}</p>
+      <button (click)="addToFavorites(apartment)">Ajouter aux favoris</button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="apartments.length === 0">
+  <p>Aucun appartement trouvé pour cette résidence.</p>
+</div>

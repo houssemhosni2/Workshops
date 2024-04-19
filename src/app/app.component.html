@@ -1,3 +1,15 @@
-<h1>Welcome to My Angular App</h1>
+<header>
+  <h1>Mon Application Immobilière</h1>
+  <nav>
+    <ul>
+      <li><a routerLink="/home">Accueil</a></li>
+      <li><a routerLink="/addResidence">Ajouter une Résidence</a></li>
+    </ul>
+  </nav>
+</header>
 
-<app-residences></app-residences>
+<router-outlet></router-outlet>
+
+<footer>
+  <p>&copy; 2024 Mon Application Immobilière</p>
+</footer>

@@ -5,11 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ResidencesComponent } from './residences/residences.component';
 import { FormsModule } from '@angular/forms';
+import { FormResidenceComponent } from './form-residence/form-residence.component';
+import { ApartmentsComponent } from './apartments/apartments.component';
+import { FormApartmentComponent } from './form-apartment/form-apartment.component';
+import { DetailApartmentComponent } from './detail-apartment/detail-apartment.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResidencesComponent
+    ResidencesComponent,
+    FormResidenceComponent,
+    ApartmentsComponent,
+    FormApartmentComponent,
+    DetailApartmentComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

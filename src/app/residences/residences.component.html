@@ -4,11 +4,9 @@
     {{ residence.name }} - {{ residence.address }}
     <button (click)="showApartments(residence)">Show apartments</button>
     <ul *ngIf="selectedResidence === residence">
-      <ng-container *ngIf="residenceApartments.length > 0">
-        <li *ngFor="let apartment of residenceApartments">
-          {{ apartment.description }} - {{ apartment.surface }} m² - <button (click)="addToFavorites(apartment)">Like</button>
-        </li>
-      </ng-container>
+      <li *ngFor="let apartment of residenceApartments">
+        {{ apartment.description }} - {{ apartment.surface }} m² - <button (click)="addToFavorites(apartment)">Like</button>
+      </li>
       <li *ngIf="residenceApartments.length === 0">No Apartment found</li>
     </ul>
   </li>
