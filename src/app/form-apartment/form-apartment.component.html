@@ -1,1 +1,52 @@
-<p>form-apartment works!</p>
+<form [formGroup]="apartForm" (ngSubmit)="onSubmit()" class="mt-4">
+  <div class="mb-3">
+    <label for="appartNum" class="form-label">Apartment Number:</label>
+    <input type="text" formControlName="appartNum" class="form-control">
+    <div *ngIf="apartForm.get('appartNum')?.errors?.['required']" class="text-danger">Apartment Number is required.</div>
+    <div *ngIf="apartForm.get('appartNum')?.errors?.['pattern']" class="text-danger">Apartment Number must contain only digits.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="floorNum" class="form-label">Floor Number:</label>
+    <input type="text" formControlName="floorNum" class="form-control">
+    <div *ngIf="apartForm.get('floorNum')?.errors?.['required']" class="text-danger">Floor Number is required.</div>
+    <div *ngIf="apartForm.get('floorNum')?.errors?.['pattern']" class="text-danger">Floor Number must contain only digits.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="surface" class="form-label">Surface:</label>
+    <input type="number" formControlName="surface" class="form-control">
+    <div *ngIf="apartForm.get('surface')?.errors?.['required']" class="text-danger">Surface is required.</div>
+  </div>
+
+  <div class="mb-3 form-check">
+    <input type="checkbox" formControlName="terrace" class="form-check-input">
+    <label class="form-check-label" for="terrace">Terrace</label>
+  </div>
+
+  <div class="mb-3">
+    <label for="surfaceTerrace" class="form-label">Surface of Terrace:</label>
+    <input type="number" formControlName="surfaceTerrace" class="form-control" [disabled]="!apartForm.get('terrace')?.value">
+    <div *ngIf="apartForm.get('surfaceTerrace')?.errors?.['required']" class="text-danger">Surface of Terrace is required.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Category:</label>
+    <select formControlName="category" class="form-select">
+      <option value="" disabled>Select category</option>
+      <option value="S+1">S+1</option>
+      <option value="S+2">S+2</option>
+      <option value="S+3">S+3</option>
+    </select>
+    <div *ngIf="apartForm.get('category')?.errors?.['required']" class="text-danger">Category is required.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description:</label>
+    <textarea formControlName="description" class="form-control"></textarea>
+    <div *ngIf="apartForm.get('description')?.errors?.['required']" class="text-danger">Description is required.</div>
+    <div *ngIf="apartForm.get('description')?.errors?.['minlength']" class="text-danger">Description must be at least 10 characters long.</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="apartForm.invalid">Submit</button>
+</form>

@@ -1,21 +1,30 @@
-<h2>Résidences</h2>
-<ul>
-  <li *ngFor="let residence of listResidences">
-    {{ residence.name }} - {{ residence.address }}
-    <button (click)="showApartments(residence)">Show apartments</button>
-    <ul *ngIf="selectedResidence === residence">
-      <li *ngFor="let apartment of residenceApartments">
-        {{ apartment.description }} - {{ apartment.surface }} m² - <button (click)="addToFavorites(apartment)">Like</button>
-      </li>
-      <li *ngIf="residenceApartments.length === 0">No Apartment found</li>
-    </ul>
-  </li>
-</ul>
-
-<h2>Appartements</h2>
-<input type="number" placeholder="Search by surface" [(ngModel)]="surfaceFilter">
-<ul>
-  <li *ngFor="let apartment of filteredApartments">
-    {{ apartment.description }} - {{ apartment.surface }} m² - <button (click)="addToFavorites(apartment)">Like</button>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Résidences</h2>
+      <ul class="list-group">
+        <li *ngFor="let residence of listResidences" class="list-group-item">
+          <span>{{ residence.name }} - {{ residence.address }}</span>
+          <button (click)="showApartments(residence)" class="btn btn-primary btn-sm ms-2">Show apartments</button>
+          <ul *ngIf="selectedResidence === residence" class="mt-2">
+            <li *ngFor="let apartment of residenceApartments" class="list-group-item">
+              <span>{{ apartment.description }} - {{ apartment.surface }} m²</span>
+              <button (click)="addToFavorites(apartment)" class="btn btn-success btn-sm ms-2">Like</button>
+            </li>
+            <li *ngIf="residenceApartments.length === 0" class="list-group-item">No Apartment found</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2>Appartements</h2>
+      <input type="number" placeholder="Search by surface" [(ngModel)]="surfaceFilter" class="form-control mb-3">
+      <ul class="list-group">
+        <li *ngFor="let apartment of filteredApartments" class="list-group-item">
+          <span>{{ apartment.description }} - {{ apartment.surface }} m²</span>
+          <button (click)="addToFavorites(apartment)" class="btn btn-success btn-sm ms-2">Like</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,26 @@
-<h2>Appartements pour la résidence</h2>
+<div class="container mt-4">
+  <h2>Appartements pour la résidence</h2>
 
-<div *ngIf="apartments.length > 0">
-  <ul>
-    <li *ngFor="let apartment of apartments">
-      <h3>{{ apartment.description }}</h3>
-      <p>Numéro de l'appartement : {{ apartment.appartNum }}</p>
-      <p>Étage : {{ apartment.floorNum }}</p>
-      <p>Surface : {{ apartment.surface }} m²</p>
-      <p>Terrasse : {{ apartment.terrace }}</p>
-      <p>Surface de la terrasse : {{ apartment.surfaceTerrace }} m²</p>
-      <p>Catégorie : {{ apartment.category }}</p>
-      <button (click)="addToFavorites(apartment)">Ajouter aux favoris</button>
-    </li>
-  </ul>
-</div>
+  <div *ngIf="apartments.length > 0">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li *ngFor="let apartment of apartments" class="list-group-item">
+            <h3>{{ apartment.description }}</h3>
+            <p>Numéro de l'appartement : {{ apartment.appartNum }}</p>
+            <p>Étage : {{ apartment.floorNum }}</p>
+            <p>Surface : {{ apartment.surface }} m²</p>
+            <p>Terrasse : {{ apartment.terrace }}</p>
+            <p>Surface de la terrasse : {{ apartment.surfaceTerrace }} m²</p>
+            <p>Catégorie : {{ apartment.category }}</p>
+            <button (click)="addToFavorites(apartment)" class="btn btn-success">Ajouter aux favoris</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<div *ngIf="apartments.length === 0">
-  <p>Aucun appartement trouvé pour cette résidence.</p>
+  <div *ngIf="apartments.length === 0" class="mt-3">
+    <p class="text-muted">Aucun appartement trouvé pour cette résidence.</p>
+  </div>
 </div>
