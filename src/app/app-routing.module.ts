@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'addApartment', component: FormApartmentComponent },
   { path: 'apartment/:id', component: DetailApartmentComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '/404' } // Catch-all route for non-existent routes
+  { path: '**', redirectTo: '/404' } 
 ];
 
 @NgModule({

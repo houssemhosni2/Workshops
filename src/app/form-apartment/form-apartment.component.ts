@@ -34,7 +34,7 @@ export class FormApartmentComponent implements OnInit {
   onSubmit(): void {
     if (this.apartForm.valid) {
       console.log('Form submitted successfully!', this.apartForm.value);
-      // Ajoutez ici la logique pour soumettre les données du formulaire
+    
     } else {
       console.error('Invalid form. Please check all fields.');
     }
